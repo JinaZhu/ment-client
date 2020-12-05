@@ -15,7 +15,12 @@ const Choice = ({ setDisplayMentee, setDisplayMentor }) => {
         Sign Up as <Underscore>_</Underscore>
       </H1>
       <div>
-        <SelectionButton borderActive={"left"}>Mentee</SelectionButton>
+        <SelectionButton
+          onClick={() => setDisplayMentee(true)}
+          borderActive={"left"}
+        >
+          Mentee
+        </SelectionButton>
         <SelectionButton
           onClick={() => setDisplayMentor(true)}
           borderActive={"right"}

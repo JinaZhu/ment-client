@@ -45,7 +45,7 @@ const knowledges = [
   "Interview Prep",
   "Everything and anything",
 ];
-const Mentor = ({ setDisplayMentor }) => {
+const Mentor = ({ setDisplay, knowledgeQuestion, isMentor, type }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -67,12 +67,12 @@ const Mentor = ({ setDisplayMentor }) => {
   return (
     <ChoiceContainer>
       <BackButtonContainer>
-        <Back onClick={() => setDisplayMentor(false)}>
+        <Back onClick={() => setDisplay(false)}>
           <Arrow src={arrow} width={25} />
           Back to selection
         </Back>
       </BackButtonContainer>
-      <H1>Becoming a mentor</H1>
+      <H1>Becoming a {type}</H1>
       <Form>
         <Input
           type="text"
@@ -124,7 +124,7 @@ const Mentor = ({ setDisplayMentor }) => {
           </ChoicesContainer>
         </div>
         <div>
-          <Question>What do you knowledgable in?</Question>
+          <Question>{knowledgeQuestion}</Question>
           <ChoicesContainer>
             {knowledges.map((choice) => {
               return (
@@ -147,10 +147,12 @@ const Mentor = ({ setDisplayMentor }) => {
             onChange={(e) => setLevel(e.target.value)}
           />
         </div>
-        <div>
-          <Question>Current Company</Question>
-          <Input type="text" onChange={(e) => setCompany(e.target.value)} />
-        </div>
+        {isMentor && (
+          <div>
+            <Question>Current Company</Question>
+            <Input type="text" onChange={(e) => setCompany(e.target.value)} />
+          </div>
+        )}
         <div>
           <Question>
             Tell us about yourself. Why did you want to learn to code? What
