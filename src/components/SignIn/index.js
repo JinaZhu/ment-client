@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 
-import { SignInContainer, Form, H1, Input, SignInButton } from "./styled";
+import { SignInContainer, Form, H1 } from "./styled";
+import { Button, Input, PageContainer } from "../../globalStyles";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   return (
-    <SignInContainer>
+    <PageContainer>
       <H1>Sign In</H1>
       <Form>
         <Input
@@ -19,9 +21,9 @@ const SignIn = () => {
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
         />
-        <SignInButton>Sign In</SignInButton>
+        <Button>Sign In</Button>
       </Form>
-    </SignInContainer>
+    </PageContainer>
   );
 };
 

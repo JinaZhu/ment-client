@@ -1,16 +1,11 @@
 import React from "react";
 
-import {
-  ChoiceContainer,
-  H1,
-  SelectionButton,
-  Underscore,
-  RedirectLink,
-} from "./styled";
+import { ChoiceContainer, SelectionButton, RedirectLink } from "./styled";
+import { Underscore, PageContainer, H1 } from "../../globalStyles";
 
 const Choice = ({ setDisplayMentee, setDisplayMentor }) => {
   return (
-    <ChoiceContainer>
+    <PageContainer>
       <H1>
         Sign Up as <Underscore>_</Underscore>
       </H1>
@@ -31,7 +26,7 @@ const Choice = ({ setDisplayMentee, setDisplayMentor }) => {
       <RedirectLink to="/signIn">
         <p>I have an account</p>
       </RedirectLink>
-    </ChoiceContainer>
+    </PageContainer>
   );
 };
 

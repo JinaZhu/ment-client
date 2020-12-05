@@ -1,10 +1,14 @@
 import React from "react";
 
+import { H1, PageContainer, Underscore } from "../../globalStyles";
+
 const Homepage = () => {
   return (
-    <div>
-      <p>Homepage</p>
-    </div>
+    <PageContainer>
+      <H1>
+        Meet your Ment<Underscore>_</Underscore>
+      </H1>
+    </PageContainer>
   );
 };
 
