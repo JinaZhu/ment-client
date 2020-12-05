@@ -8,7 +8,7 @@ import {
   RedirectLink,
 } from "./styled";
 
-const Choice = () => {
+const Choice = ({ setDisplayMentee, setDisplayMentor }) => {
   return (
     <ChoiceContainer>
       <H1>
@@ -16,7 +16,12 @@ const Choice = () => {
       </H1>
       <div>
         <SelectionButton borderActive={"left"}>Mentee</SelectionButton>
-        <SelectionButton borderActive={"right"}>Mentor</SelectionButton>
+        <SelectionButton
+          onClick={() => setDisplayMentor(true)}
+          borderActive={"right"}
+        >
+          Mentor
+        </SelectionButton>
       </div>
       <RedirectLink to="/signIn">
         <p>I have an account</p>

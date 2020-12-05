@@ -8,8 +8,13 @@ const SignUp = () => {
 
   return (
     <div>
-      {!displayMentor && !displayMentee && <Choice />}
-      {displayMentor && <Mentor />}
+      {!displayMentor && !displayMentee && (
+        <Choice
+          setDisplayMentor={setDisplayMentor}
+          setDisplayMentee={setDisplayMentee}
+        />
+      )}
+      {displayMentor && <Mentor setDisplayMentor={setDisplayMentor} />}
     </div>
   );
 };
