@@ -8,7 +8,7 @@ const knowledgeMentorQuestion =
 const knowledgeMenteeQuestion = "What do you need mentorship in?";
 
 const SignUp = () => {
-  const [displayMentor, setDisplayMentor] = useState(true);
+  const [displayMentor, setDisplayMentor] = useState(false);
   const [displayMentee, setDisplayMentee] = useState(false);
 
   if (!displayMentor && !displayMentee) {
