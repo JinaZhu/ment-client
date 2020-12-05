@@ -1,17 +1,36 @@
 import React from "react";
-import { ChoiceContainer, H1, SelectionButton, Underscore } from "./styled";
 
-const Choice = () => {
+import {
+  ChoiceContainer,
+  H1,
+  SelectionButton,
+  Underscore,
+  RedirectLink,
+} from "./styled";
+
+const Choice = ({ setDisplayMentee, setDisplayMentor }) => {
   return (
     <ChoiceContainer>
       <H1>
         Sign Up as <Underscore>_</Underscore>
       </H1>
       <div>
-        <SelectionButton borderActive={"left"}>Mentee</SelectionButton>
-        <SelectionButton borderActive={"right"}>Mentor</SelectionButton>
+        <SelectionButton
+          onClick={() => setDisplayMentee(true)}
+          borderActive={"left"}
+        >
+          Mentee
+        </SelectionButton>
+        <SelectionButton
+          onClick={() => setDisplayMentor(true)}
+          borderActive={"right"}
+        >
+          Mentor
+        </SelectionButton>
       </div>
-      <p>I have an account</p>
+      <RedirectLink to="/signIn">
+        <p>I have an account</p>
+      </RedirectLink>
     </ChoiceContainer>
   );
 };
