@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import {
-  ChoiceContainer,
   Form,
-  Input,
-  H1,
   BackButtonContainer,
   Back,
   Arrow,
@@ -11,9 +8,9 @@ import {
   ChoicesContainer,
   Question,
   Textarea,
-  SignUpButton,
 } from "./styled";
 import arrow from "../../images/arrow-left.svg";
+import { Input, H1, PageContainer, Button } from "../../globalStyles";
 
 const identities = [
   "Hispanic or Latinx",
@@ -65,7 +62,7 @@ const Mentor = ({ setDisplay, knowledgeQuestion, isMentor, type }) => {
   }
 
   return (
-    <ChoiceContainer>
+    <PageContainer>
       <BackButtonContainer>
         <Back onClick={() => setDisplay(false)}>
           <Arrow src={arrow} width={25} />
@@ -161,9 +158,9 @@ const Mentor = ({ setDisplay, knowledgeQuestion, isMentor, type }) => {
           </Question>
           <Textarea onChange={(e) => setAbout(e.target.value)} />
         </div>
-        <SignUpButton>Sign Up</SignUpButton>
+        <Button>Sign Up</Button>
       </Form>
-    </ChoiceContainer>
+    </PageContainer>
   );
 };
 
