@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Choice from "./Choice";
-import Mentor from "./Mentor";
+import Ment from "./Ment";
 
 const knowledgeMentorQuestion =
   "Of the choices below, which option are you most knowledgable on?";
@@ -20,13 +20,13 @@ const SignUp = () => {
     );
   }
   return (
-    <Mentor
+    <Ment
       setDisplay={displayMentor ? setDisplayMentor : setDisplayMentee}
       knowledgeQuestion={
         displayMentor ? knowledgeMentorQuestion : knowledgeMenteeQuestion
       }
       isMentor={displayMentor}
-      type={displayMentor ? "Mentor" : "Mentee"}
+      type={displayMentor ? "mentor" : "mentee"}
     />
   );
 };

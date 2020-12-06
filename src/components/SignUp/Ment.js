@@ -42,7 +42,7 @@ const knowledges = [
   "Interview Prep",
   "Everything and anything",
 ];
-const Mentor = ({ setDisplay, knowledgeQuestion, isMentor, type }) => {
+const Ment = ({ setDisplay, knowledgeQuestion, isMentor, type }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -50,14 +50,45 @@ const Mentor = ({ setDisplay, knowledgeQuestion, isMentor, type }) => {
   const [gender, setGender] = useState("");
   const [knowledge, setKnowledge] = useState("");
   const [level, setLevel] = useState("");
-  const [Company, setCompany] = useState("");
+  const [company, setCompany] = useState("");
   const [about, setAbout] = useState("");
+  const [linkedIn, setLinkedIn] = useState("");
+  const [phone, setPhone] = useState("");
 
   function CheckSelected(selected, option) {
     if (selected === option) {
       return true;
     } else {
       return false;
+    }
+  }
+
+  async function getQuestions(e) {
+    e.preventDefault();
+    try {
+      const response = await fetch(`http://0.0.0.0:8000/${type}/signup`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          password: password,
+          phone_number: phone,
+          gender: gender,
+          ethnic_background: ethnic,
+          experience: level,
+          link: linkedIn,
+          about_me: about,
+          company: company,
+          knowledge: knowledge,
+        }),
+      });
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.log("error", error);
     }
   }
 
@@ -74,7 +105,7 @@ const Mentor = ({ setDisplay, knowledgeQuestion, isMentor, type }) => {
         <Input
           type="text"
           onChange={(e) => setName(e.target.value)}
-          placeholder="Name"
+          placeholder="Full Name"
         />
         <Input
           type="text"
@@ -85,6 +116,16 @@ const Mentor = ({ setDisplay, knowledgeQuestion, isMentor, type }) => {
           type="password"
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
+        />
+        <Input
+          type="text"
+          onChange={(e) => setPhone(e.target.value)}
+          placeholder="Phone Number"
+        />
+        <Input
+          type="text"
+          onChange={(e) => setLinkedIn(e.target.value)}
+          placeholder="LinkedIn"
         />
         <div>
           <Question>
@@ -158,10 +199,10 @@ const Mentor = ({ setDisplay, knowledgeQuestion, isMentor, type }) => {
           </Question>
           <Textarea onChange={(e) => setAbout(e.target.value)} />
         </div>
-        <Button>Sign Up</Button>
+        <Button onClick={getQuestions}>Sign Up</Button>
       </Form>
     </PageContainer>
   );
 };
 
-export default Mentor;
+export default Ment;
