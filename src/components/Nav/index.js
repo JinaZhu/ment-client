@@ -1,17 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 import { NavContainer, Logo, LinkContainer, StyledLink } from "./styled";
 
-const Nav = ({ routes, currentPage }) => {
-  function CheckCurrentPage(route) {
-    if (currentPage === route) {
-      console.log("currentPage", currentPage);
-      return true;
-    } else {
-      return false;
-    }
-  }
+const Nav = ({ routes }) => {
   return (
     <NavContainer>
       <Logo>Ment_</Logo>

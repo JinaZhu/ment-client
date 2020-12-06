@@ -42,7 +42,13 @@ const knowledges = [
   "Interview Prep",
   "Everything and anything",
 ];
-const Ment = ({ setDisplay, knowledgeQuestion, isMentor, type }) => {
+const Ment = ({
+  setDisplay,
+  knowledgeQuestion,
+  isMentor,
+  type,
+  setSignUpSuccess,
+}) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -62,6 +68,7 @@ const Ment = ({ setDisplay, knowledgeQuestion, isMentor, type }) => {
       return false;
     }
   }
+  console.log(typeof level);
 
   async function getQuestions(e) {
     e.preventDefault();
@@ -78,15 +85,18 @@ const Ment = ({ setDisplay, knowledgeQuestion, isMentor, type }) => {
           phone_number: phone,
           gender: gender,
           ethnic_background: ethnic,
-          experience: level,
+          experience: parseInt(level),
           link: linkedIn,
           about_me: about,
           company: company,
           knowledge: knowledge,
+          need_help: knowledge,
         }),
       });
       const data = await response.json();
       console.log(data);
+      setSignUpSuccess(true);
+      setDisplay(false);
     } catch (error) {
       console.log("error", error);
     }
