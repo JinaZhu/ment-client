@@ -9,19 +9,27 @@ import Nav from "./components/Nav";
 
 import "./App.css";
 
-const routes = [
+const unloggedRoutes = [
   ["Home", "/"],
   ["Sign Up", "/signUp"],
   ["Sign In", "/signIn"],
+];
+
+const loggedRoutes = [
+  ["Home", "/"],
+  ["Profile", "/profile"],
+  ["Sign Out", "/"],
 ];
 
 function App() {
   const [userId, setUserId] = useState("");
   const [matchId, setMatchId] = useState("");
 
+  const displayNavType = userId ? unloggedRoutes : loggedRoutes;
+
   return (
     <HashRouter basename="/">
-      <Nav routes={routes} />
+      <Nav routes={displayNavType} />
       <div className="App">
         <Route exact path="/" component={Homepage} />
         <Route exact path="/signUp" component={SignUp} />
