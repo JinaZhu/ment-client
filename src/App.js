@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { HashRouter, Route } from "react-router-dom";
 
 import Homepage from "./components/Homepage";
@@ -16,6 +16,9 @@ const routes = [
 ];
 
 function App() {
+  const [userId, setUserId] = useState("");
+  const [matchId, setMatchId] = useState("");
+
   return (
     <HashRouter basename="/">
       <Nav routes={routes} />
@@ -23,7 +26,7 @@ function App() {
         <Route exact path="/" component={Homepage} />
         <Route exact path="/signUp" component={SignUp} />
         <Route exact path="/signIn" component={SignIn} />
-        <Route exact path="/profile" component={Profile} />
+        <Route exact path="/profile" component={Profile} matchId={matchId} />
       </div>
     </HashRouter>
   );

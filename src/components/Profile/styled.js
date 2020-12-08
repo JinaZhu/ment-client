@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const UserH1 = styled.h1`
   font-size: 25px;
@@ -11,10 +11,23 @@ export const Tabs = styled.div`
   justify-content: center;
 `;
 
-export const Tab = styled.p`
-  font-size: 20px;
+export const Tab = styled.button`
+  font-size: 25px;
   margin-left: 20px;
   cursor: pointer;
+  color: #474f58;
+  background-color: transparent;
+  font-family: Darker Grotesque;
+  border: none;
+  outline: none;
+
+  ${(props) => {
+    if (props.isActive) {
+      return css`
+        border-bottom: 2px solid #474f58;
+      `;
+    }
+  }}
 `;
 
 export const SectionContainer = styled.div`
@@ -64,4 +77,23 @@ export const Row = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+`;
+
+export const MatchButton = styled.div`
+  font-size: 25px;
+  margin-left: 20px;
+  cursor: pointer;
+  color: #474f58;
+  background-color: transparent;
+  font-family: Darker Grotesque;
+  outline: none;
+  border: 1px solid #474f58;
+  padding: 5px 50px;
+  margin: 20px;
+  font-weight: bold;
+
+  &:hover {
+    color: #ffeebc;
+    background-color: #474f58;
+  }
 `;
