@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Choice from "./Choice";
-import Mentor from "./Mentor";
+import Ment from "./Ment";
+import SignInSuccess from "./SignInSuccess";
 
 const knowledgeMentorQuestion =
   "Of the choices below, which option are you most knowledgable on?";
@@ -10,6 +11,11 @@ const knowledgeMenteeQuestion = "What do you need mentorship in?";
 const SignUp = () => {
   const [displayMentor, setDisplayMentor] = useState(false);
   const [displayMentee, setDisplayMentee] = useState(false);
+  const [signUpSuccess, setSignUpSuccess] = useState(false);
+
+  if (signUpSuccess) {
+    return <SignInSuccess />;
+  }
 
   if (!displayMentor && !displayMentee) {
     return (
@@ -19,14 +25,16 @@ const SignUp = () => {
       />
     );
   }
+
   return (
-    <Mentor
+    <Ment
       setDisplay={displayMentor ? setDisplayMentor : setDisplayMentee}
       knowledgeQuestion={
         displayMentor ? knowledgeMentorQuestion : knowledgeMenteeQuestion
       }
       isMentor={displayMentor}
-      type={displayMentor ? "Mentor" : "Mentee"}
+      type={displayMentor ? "mentor" : "mentee"}
+      setSignUpSuccess={setSignUpSuccess}
     />
   );
 };
