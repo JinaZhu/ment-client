@@ -5,7 +5,7 @@ export const H1 = styled.h1`
 `;
 
 export const PageContainer = styled.div`
-  min-height: 90vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
